@@ -4,7 +4,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from tqdm import tqdm 
 
 
-openai_api_key = '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'
+openai_api_key = ''
 openai.api_key = openai_api_key
 
 
