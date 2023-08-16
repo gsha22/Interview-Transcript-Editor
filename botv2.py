@@ -53,7 +53,7 @@ init_prompt = f"""
     Preserve all interesting details. If the RBT uses evocative language, 
     include the evocative language; never edit the final transcript to be less 
     evocative. If you are unsure about whether to eliminate some words, err on 
-    the side of preserving them. Remove metadiscourse. 
+    the side of preserving them. 
 
     Here is the first chunk of the source text:
     
@@ -81,7 +81,7 @@ for i in tqdm (range(1, len(chunks)), desc="Loading..."):
         Preserve all interesting details. If the RBT uses evocative language, 
         include the evocative language; never edit the final transcript to be less 
         evocative. If you are unsure about whether to eliminate some words, err on 
-        the side of preserving them. Remove metadiscourse.  
+        the side of preserving them.   
 
         Here are the last 10 lines of the previous section for context: 
 
