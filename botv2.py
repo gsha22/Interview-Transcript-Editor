@@ -7,7 +7,7 @@ import os
 # os.environ["OPENAI_API_KEY"] = API_KEY
 openai.api_key = os.environ.get('API_KEY', 'API key not found')
 
-print("OPENAI_API_KEY Working")
+print("OPENAI_API_KEY Working...")
 
 with open('content/Nikiya_Simon_Audio_otter_ai.txt', 'r') as f:
     text = f.read()
@@ -26,6 +26,7 @@ text_splitter = RecursiveCharacterTextSplitter(
 
 chunks = text_splitter.create_documents([text])
 
+print(f"Split text into {len(chunks)} chunks...")
 
 def lastFewLines(s) -> str: 
     count = 0
