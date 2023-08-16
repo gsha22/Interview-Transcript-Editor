@@ -2,11 +2,12 @@ import openai
 from transformers import GPT2TokenizerFast
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from tqdm import tqdm 
+import os
 
+# os.environ["OPENAI_API_KEY"] = API_KEY
+openai.api_key = os.environ.get('API_KEY', 'API key not found')
 
-openai_api_key = ''
-openai.api_key = openai_api_key
-
+print("OPENAI_API_KEY Working")
 
 with open('content/Nikiya_Simon_Audio_otter_ai.txt', 'r') as f:
     text = f.read()

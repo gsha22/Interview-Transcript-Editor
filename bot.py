@@ -15,7 +15,7 @@ import time
 from IPython.display import display
 import ipywidgets as widgets
 
-os.environ["OPENAI_API_KEY"] = "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" 
+os.environ["OPENAI_API_KEY"] = "{API_KEY}" 
 
 with open('content/Nikiya_Simon_Audio_otter_ai.txt', 'r') as f:
     text = f.read()
