@@ -28,6 +28,7 @@ chunks = text_splitter.create_documents([text])
 
 print(f"Split text into {len(chunks)} chunks...")
 
+# helper function to grab previous 10 lines of output 
 def lastFewLines(s) -> str: 
     count = 0
     i = len(s)-1
@@ -60,6 +61,7 @@ init_prompt = f"""
     {chunks[0].page_content}
 """
 
+# manually running the first prompt since it is slightly different 
 completions0 = openai.ChatCompletion.create(
     model="gpt-4",
     temperature=0,
@@ -70,6 +72,7 @@ completions0 = openai.ChatCompletion.create(
 message0 = completions0['choices'][0]['message']['content']
 output.append(message0)
 
+# running the rest of the chunks with this prompt 
 for i in tqdm (range(1, len(chunks)), desc="Loading..."): 
     mid_prompt = f"""INSTRUCTIONS: "You are to create an edited transcript from 
         the text below. The text is from an interview between an RBT and an 
@@ -102,6 +105,7 @@ for i in tqdm (range(1, len(chunks)), desc="Loading..."):
     message = completions['choices'][0]['message']['content']
     output.append(message)
 
+# writing to a new file 
 f = open("outputs/outputv2.txt", "w")
 for i in range(len(output)):
     f.write(output[i])
