@@ -109,7 +109,7 @@ for i in tqdm (range(1, len(chunks)), desc="Loading..."):
 f = open("outputs/outputv2.txt", "w")
 for i in range(len(output)):
     f.write(output[i])
-    f.write('\n')
+    f.write('\n\n')
 f.close()
 
 print("Completed writing to Output")
