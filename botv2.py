@@ -16,7 +16,7 @@ def lastFewLines(s) -> str:
     
     return s[i:len(s)]
 
-def transcript_editor(file_path): 
+def transcript_editor(file_path, interviewer_name): 
     with open(f'{file_path}', 'r') as f:
         text = f.read()
 
@@ -28,7 +28,7 @@ def transcript_editor(file_path):
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size = 1024,
         chunk_overlap = 0, 
-        separators=["\n\nSimon Cullen"],
+        separators=[f"\n\n{interviewer_name}"],
         length_function = count_tokens,
     )
 
@@ -113,12 +113,19 @@ openai.api_key = os.environ.get('API_KEY', 'API key not found')
 
 print("OPENAI_API_KEY Working...\n")
 
+def name_getter(file) -> str:
+    f = open(f'{file}', 'r')
+    name = f.readline()
+    if (len(name) > 13): name = "Unknown Interviewer"
+    f.close()
+    return name.strip()
+
 # iterate over files in
 # that directory
 files = Path('content').glob('*')
 for file in files:
     print(f"Editing file: {os.path.basename(file)}")
-    transcript_editor(file)
+    transcript_editor(file, name_getter(file))
     print(f"Finished editing file: {os.path.basename(file)}. You can now find it in the outputs folder.")
     print('\n')
 
