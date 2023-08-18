@@ -15,7 +15,8 @@ import time
 from IPython.display import display
 import ipywidgets as widgets
 
-os.environ["OPENAI_API_KEY"] = "{API_KEY}" 
+API_KEY = os.environ.get('API_KEY', 'API key not found')
+os.environ["OPENAI_API_KEY"] = API_KEY
 
 with open('content/Nikiya_Simon_Audio_otter_ai.txt', 'r') as f:
     text = f.read()
