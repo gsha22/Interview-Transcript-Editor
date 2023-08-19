@@ -124,15 +124,13 @@ def name_getter(file) -> str:
             return lines[i].strip()
     return "Unknown Interviewer"
 
-print(name_getter('content/Ali_Simon_Audio.txt'))
-
 # iterate over files in
 # that directory
-# files = Path('content').glob('*')
-# for file in files:
-#     print(f"Editing file: {os.path.basename(file)}")
-#     transcript_editor(file, name_getter(file))
-#     print(f"Finished editing file: {os.path.basename(file)}. You can now find it in the outputs folder.")
-#     print('\n')
+files = Path('content').glob('*')
+for file in files:
+    print(f"Editing file: {os.path.basename(file)}")
+    transcript_editor(file, name_getter(file))
+    print(f"Finished editing file: {os.path.basename(file)}. You can now find it in the outputs folder.")
+    print('\n')
 
 print("Completed editing all files. You can find the edited version in the outputs folder.")
