@@ -37,7 +37,3 @@ Because GPT-4 had recently come out, he advised me to find a way to create a scr
 
 5. Run the script, and the edited transcripts will be generated and stored in the "outputs" folder.
 
-
-## Note
-
-Make sure to set your OpenAI API key in the environment variable API_KEY to enable access to the GPT-4 model.
