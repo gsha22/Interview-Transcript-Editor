@@ -20,7 +20,24 @@ Because GPT-4 had recently come out, he advised me to find a way to create a scr
 
 ## Dependencies 
 
-- openai's GPT-4
+- OpenAI's GPT-4
 - HuggingFace Transformers
 - tqdm
 - langchain
+
+## Usage
+
+1. Ensure you have the necessary dependencies installed.
+
+2. Create an environ key in your os for your OpenAI API key.
+
+3. Place your interview transcripts in the "content" directory.
+
+4. Make any edits you wish to the "init_prompt" and/or "mid_prompt" to change how GPT-4 will edit your txt file. 
+
+5. Run the script, and the edited transcripts will be generated and stored in the "outputs" folder.
+
+
+## Note
+
+Make sure to set your OpenAI API key in the environment variable API_KEY to enable access to the GPT-4 model.
